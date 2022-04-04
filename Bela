@@ -1,0 +1,75 @@
+/* Joseph D'Amico
+ * Dr. Daniel - Bela Individual Assignment
+ * 4/1/22
+ */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace BelaIndivAssignment
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int total = 0;
+            
+                string s = Console.ReadLine();
+                char[] letters = s.ToCharArray();
+                char dominant = letters[2];
+            int hands = Int32.Parse(letters[0].ToString());
+            for (int i = 0; i < 4 * hands; i++)
+                {
+                s = Console.ReadLine();
+                    letters = s.ToCharArray();
+                    if(letters[0] == 'A')
+                    {
+                        total += 11;
+                    }
+                    if (letters[0] == 'K')
+                    {
+                        total += 4;
+                    }
+                    if (letters[0] == 'Q')
+                    {
+                        total += 3;
+                    }
+                    if (letters[0] == 'J')
+                    {
+                        if (dominant == letters[1])
+                        {
+                            total += 20;
+                        }
+                        else
+                            total += 2;
+                    }
+                    if (letters[0] == 'T')
+                    {
+                        total += 10;
+                    }
+                    if (letters[0] == '9')
+                    {
+                        if (dominant == letters[1])
+                        {
+                            total += 14;
+                        }
+                        else
+                            total += 0;
+                    }
+                    if (letters[0] == '8')
+                    {
+                        total += 0;
+                    }
+                    if (letters[0] == '7')
+                    {
+                        total += 0;
+                    }
+                }
+            Console.WriteLine(total);
+            Console.ReadKey();
+        }
+    }
+}
